@@ -2,12 +2,16 @@ package com.example.application
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 
 
 class FoodItem_Fragment : Fragment() {
@@ -37,6 +41,27 @@ class FoodItem_Fragment : Fragment() {
         input_image?.let { foodImage.setImageResource(it) }
         val foodDesc = view.findViewById<TextView>(R.id.foodDesc)
         foodDesc.text = input_desc
+
+        // button to go back
+        val backButton = view.findViewById<Button>(R.id.backButton)
+        backButton.setOnClickListener{
+            fun onBackClick(v:View?){
+                val main = MainActivity()
+                Log.d("test", "onBackClick: hi")
+
+                val transac = parentFragmentManager.beginTransaction()
+                //parentFragmentManager.popBackStackImmediate()
+                //transac.replace(R.id.fragmentitem, main)
+//              //transac.commit()
+                parentFragmentManager.beginTransaction().remove(this).commit()
+
+
+
+
+
+
+            }
+        }
 
 
         return view
