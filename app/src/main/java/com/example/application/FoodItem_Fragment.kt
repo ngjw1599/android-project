@@ -45,25 +45,10 @@ class FoodItem_Fragment : Fragment() {
         // button to go back
         val backButton = view.findViewById<Button>(R.id.backButton)
         backButton.setOnClickListener{
-            fun onBackClick(v:View?){
-                val main = MainActivity()
-                Log.d("test", "onBackClick: hi")
-
-                val transac = parentFragmentManager.beginTransaction()
-                //parentFragmentManager.popBackStackImmediate()
-                //transac.replace(R.id.fragmentitem, main)
-//              //transac.commit()
+                //Log.d("test", "onBackClick: hi")
                 parentFragmentManager.beginTransaction().remove(this).commit()
 
-
-
-
-
-
-            }
         }
-
-
         return view
     }
 
