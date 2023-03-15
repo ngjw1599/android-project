@@ -1,17 +1,16 @@
 package com.example.application
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 import kotlin.collections.ArrayList
 
-class MainActivity : AppCompatActivity(), foodAdapter.OnItemClickListener {
-    // declare recyclerview
+class MainActivity : AppCompatActivity(){
+    /*// declare recyclerview
     private lateinit var newRecyclerView: RecyclerView
     // declare list array
     private lateinit var newArrayList: ArrayList<FoodItemClass>
@@ -19,18 +18,42 @@ class MainActivity : AppCompatActivity(), foodAdapter.OnItemClickListener {
     lateinit var foodImageArray : Array<Int>
     private var foodNameArray = ArrayList<String>()
     private var foodDescArray = ArrayList<String>()
-
+*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val home = Home_Fragment()
+        val promotion = Promotion_Fragment()
+        val cart = View_Cart_Fragment()
 
+        // shifted all main activity to another home fragment
+        supportFragmentManager.beginTransaction().replace(R.id.framelayout, home).commit()
+
+        // navigation of the bottom nav bar
+        val btmnav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        btmnav.setOnNavigationItemSelectedListener() {
+            // itemid is the id being set in the nav_menu.xml
+            when (it.itemId) {
+                R.id.ic_home ->
+                    supportFragmentManager.beginTransaction().replace(R.id.framelayout, home)
+                        .commit()
+                R.id.ic_promo ->
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.framelayout, promotion).commit()
+                R.id.ic_checkout ->
+                    supportFragmentManager.beginTransaction().replace(R.id.framelayout, cart)
+                        .commit()
+            }
+            true
+        }
+
+
+/*
         //set up file to scan
         val scanner = Scanner(resources.openRawResource(R.raw.menu))
         readFile(scanner)
 
-        // set array for food names and images
-        //Croissant, Hamburger, Chocolate Cake, Soup, Muffin
         foodImageArray = arrayOf(
             R.drawable.chocolatecake,
             R.drawable.croissant,
@@ -39,11 +62,30 @@ class MainActivity : AppCompatActivity(), foodAdapter.OnItemClickListener {
             R.drawable.muffin
         )
 
+
         newRecyclerView = findViewById(R.id.recyclerView)
         newRecyclerView.layoutManager = LinearLayoutManager(this)
         newRecyclerView.setHasFixedSize(true)
         newArrayList = arrayListOf<FoodItemClass>()
         getItemData()
+
+        val home = MainActivity()
+        // fragment
+        val promotion = Promotion_Fragment()
+        val cart = View_Cart_Fragment()
+
+        // navigation of bar
+        val btmnav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        btmnav.setOnNavigationItemSelectedListener(){
+            // itemid is the id being set in the nav_menu.xml
+            when (it.itemId){
+                R.id.ic_promo ->
+                    supportFragmentManager.beginTransaction().replace(R.id.constraintLayout, promotion).commit()
+                R.id.ic_checkout ->
+                    supportFragmentManager.beginTransaction().replace(R.id.constraintLayout, cart).commit()
+            }
+            true
+        }
 
 
     }
@@ -88,9 +130,10 @@ class MainActivity : AppCompatActivity(), foodAdapter.OnItemClickListener {
         fmTransac.addToBackStack(null)
         fmTransac.commit()
 
+    }*/
+
+
     }
-
-
 
 
 
