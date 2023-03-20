@@ -13,9 +13,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 
 
 class FoodItem_Fragment : Fragment() {
@@ -26,6 +29,9 @@ class FoodItem_Fragment : Fragment() {
     var input_desc : String = ""
     var input_price : Float? = null
     var item_amount : Int = 0
+
+    // call the viewmodel class
+    lateinit var cartListViewModel : CartViewModel
 
 
     @SuppressLint("CutPasteId", "SetTextI18n")
@@ -52,6 +58,9 @@ class FoodItem_Fragment : Fragment() {
         val foodPrice = view.findViewById<TextView>(R.id.foodPrice)
         // add 2dp to price
         foodPrice.text = "Price: $ ${"%.2f".format(input_price)}"
+
+        // declare cart in here
+        cartListViewModel = (activity as MainActivity).getCartListViewModel() as CartViewModel
 
         //hide nav bar
         val btmView = activity?.findViewById<BottomNavigationView>(R.id.bottomNav)
@@ -106,22 +115,24 @@ class FoodItem_Fragment : Fragment() {
         }
 
         // add to cart, send total to view cart, pass data
-        val addToCart = view.findViewById<Button>(R.id.addToCart)
-        addToCart.setOnClickListener{
+        val addToCartButton = view.findViewById<Button>(R.id.addToCart)
+        addToCartButton.setOnClickListener{
             if (item_amount == 0){
                 Toast.makeText(context, "There are no items to add", Toast.LENGTH_SHORT).show()
             }
             else{
-                passData(input_name, input_price, item_amount)
+                addToCart(input_name, input_price, item_amount)
             }
         }
 
         return view
     }
 
-    // functionality of passing data
-    private fun passData(item_name: String, item_price: Float?, item_amount: Int ){
-
+    // functionality of passing data to the cart list
+    private fun addToCart(item_name: String, item_price: Float?, item_amount: Int ){
+        val newItemAdded = CartClass(item_name, item_price, item_amount)
+        // use the view model to link to the cart list
+        cartListViewModel.cartList.add(newItemAdded)
     }
 
     // set value on app
