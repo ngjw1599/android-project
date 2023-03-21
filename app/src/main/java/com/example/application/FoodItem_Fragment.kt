@@ -133,6 +133,12 @@ class FoodItem_Fragment : Fragment() {
         val newItemAdded = CartClass(item_name, item_price, item_amount)
         // use the view model to link to the cart list
         cartListViewModel.cartList.add(newItemAdded)
+        Toast.makeText(activity, "Item successfully added to cart!", Toast.LENGTH_SHORT).show()
+
+        val btmView = activity?.findViewById<BottomNavigationView>(R.id.bottomNav)
+        btmView!!.visibility = View.VISIBLE
+        parentFragmentManager.beginTransaction().remove(this).commit()
+
     }
 
     // set value on app
