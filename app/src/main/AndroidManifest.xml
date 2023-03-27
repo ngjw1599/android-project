@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- Limits app visibility in the Google Play Store to ARCore supported devices
+         (https://developers.google.com/ar/devices). -->
+    <uses-feature android:name="android.hardware.camera.ar" android:required="true"/>
 
     <application
         android:allowBackup="true"
@@ -22,6 +28,9 @@
             android:exported="false" />
         <activity
             android:name=".AR_View_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".java.augmentedimage.AugmentedImageActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

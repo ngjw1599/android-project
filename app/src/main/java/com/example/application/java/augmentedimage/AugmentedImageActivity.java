@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.ar.core.examples.java.augmentedimage;
+package com.example.application.java.augmentedimage;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -30,6 +30,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
+import com.example.application.R;
 import com.google.ar.core.Anchor;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.AugmentedImage;
@@ -38,13 +39,13 @@ import com.google.ar.core.Camera;
 import com.google.ar.core.Config;
 import com.google.ar.core.Frame;
 import com.google.ar.core.Session;
-import com.google.ar.core.examples.java.augmentedimage.rendering.AugmentedImageRenderer;
-import com.google.ar.core.examples.java.common.helpers.CameraPermissionHelper;
-import com.google.ar.core.examples.java.common.helpers.DisplayRotationHelper;
-import com.google.ar.core.examples.java.common.helpers.FullScreenHelper;
-import com.google.ar.core.examples.java.common.helpers.SnackbarHelper;
-import com.google.ar.core.examples.java.common.helpers.TrackingStateHelper;
-import com.google.ar.core.examples.java.common.rendering.BackgroundRenderer;
+import com.example.application.java.augmentedimage.rendering.AugmentedImageRenderer;
+import com.example.application.java.common.helpers.CameraPermissionHelper;
+import com.example.application.java.common.helpers.DisplayRotationHelper;
+import com.example.application.java.common.helpers.FullScreenHelper;
+import com.example.application.java.common.helpers.SnackbarHelper;
+import com.example.application.java.common.helpers.TrackingStateHelper;
+import com.example.application.java.common.rendering.BackgroundRenderer;
 import com.google.ar.core.exceptions.CameraNotAvailableException;
 import com.google.ar.core.exceptions.UnavailableApkTooOldException;
 import com.google.ar.core.exceptions.UnavailableArcoreNotInstalledException;
