@@ -109,7 +109,7 @@ public class AugmentedImageActivity extends AppCompatActivity implements GLSurfa
 
     // Get info from intent
     Intent intent = getIntent();
-    name = intent.getStringExtra("name");
+    name = intent.getStringExtra("foodname");
 
     // Set up renderer.
     surfaceView.setPreserveEGLContextOnPause(true);
@@ -252,6 +252,7 @@ public class AugmentedImageActivity extends AppCompatActivity implements GLSurfa
       // Create the texture and pass it to ARCore session to be filled during update().
       backgroundRenderer.createOnGlThread(/*context=*/ this);
       //augmentedImageRenderer.createOnGlThread(/*context=*/ this);
+      Log.d("test", name);
       augmentedImageRenderer.createOnGlThread(/*context=*/ this, name);
     } catch (IOException e) {
       Log.e(TAG, "Failed to read an asset file", e);

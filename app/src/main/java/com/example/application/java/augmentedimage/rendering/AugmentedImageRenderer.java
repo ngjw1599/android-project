@@ -16,6 +16,8 @@
 package com.example.application.java.augmentedimage.rendering;
 
 import android.content.Context;
+import android.util.Log;
+
 import com.google.ar.core.Anchor;
 import com.google.ar.core.AugmentedImage;
 import com.google.ar.core.Pose;
@@ -46,18 +48,19 @@ public class AugmentedImageRenderer {
 
     String objAsset;
     String diffuseTexture;
+    Log.d("test", name);
 
     // Switch case to decide which model to render based on the ID from intent
     switch (name) {
-      case "case1":
+      case "Soup":
         objAsset = "foodmodels/chickenrice.obj";
         diffuseTexture = "foodmodels/chickenrice.png";
         break;
-      case "case2":
+      case "Chocolate Cake":
         objAsset = "foodmodels/figdanish.obj";
         diffuseTexture = "foodmodels/figdanish.png";
         break;
-      case "case3":
+      case "Hamburger":
         objAsset = "foodmodels/chickenrice.obj";
         diffuseTexture = "foodmodels/chickenrice.png";
         break;
