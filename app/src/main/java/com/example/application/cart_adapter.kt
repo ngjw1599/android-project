@@ -69,12 +69,15 @@ class cartAdapter(private val cartList: MutableList<CartClass>, private val frag
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem = cartList[position]
-        holder.foodTextView.text = currentItem.name
-        // toString the ones with non text values
-        holder.priceTextView.text = "$ ${"%.2f".format(currentItem.price)}"
-        holder.amountTextView.text = currentItem.itemAmount.toString()
-
+        if (cartList.size == 0) {
+            holder.foodTextView.text = "There are no items in your cart."
+        } else {
+            val currentItem = cartList[position]
+            holder.foodTextView.text = currentItem.name
+            // toString the ones with non text values
+            holder.priceTextView.text = "$ ${"%.2f".format(currentItem.price)}"
+            holder.amountTextView.text = currentItem.itemAmount.toString()
+        }
     }
 
     private fun totalPriceCalculate(): Float {

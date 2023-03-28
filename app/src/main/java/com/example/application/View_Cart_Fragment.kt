@@ -1,16 +1,16 @@
 package com.example.application
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class View_Cart_Fragment : Fragment() {
 
@@ -21,7 +21,6 @@ class View_Cart_Fragment : Fragment() {
     private lateinit var newRecyclerView: RecyclerView
 
     private var totalPrice: Float? = null
-
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
@@ -39,6 +38,7 @@ class View_Cart_Fragment : Fragment() {
         cartListViewModel = (activity as MainActivity).getCartListViewModel() as CartViewModel
         // if cart is empty, show message
         if (cartListViewModel.cartList.size == 0) {
+
         }
         // attach adapter to recyclerview to populate data
         newRecyclerView.adapter = cartAdapter(cartListViewModel.cartList, this)
@@ -54,6 +54,35 @@ class View_Cart_Fragment : Fragment() {
             totalPriceView!!.text = "$ ${"%.2f".format(totalPrice)}"
         }
 
+        // submit order on click and show order summary
+        var submitOrderBtn = view.findViewById<Button>(R.id.confirmOrderButton)
+        submitOrderBtn.setOnClickListener{
+            if (totalPriceView.text == "$0.00"){
+                submitOrderBtn.isClickable = false
+
+            }
+            else{
+                val fm = childFragmentManager
+                // make data transaction to fragment
+                val fmTransact = fm.beginTransaction()
+                // declare fragment you want to send
+
+                val frag = OrderSummaryFragment()
+
+                fmTransact.replace(R.id.cartFragment, frag)
+                fmTransact.commit()
+
+                // disable nav buttons or hide nav bar
+                val navBar = (activity as MainActivity).findViewById<BottomNavigationView>(R.id.bottomNav)
+                navBar.visibility = View.GONE
+
+                // hide confirm order button
+                submitOrderBtn.visibility = View.GONE
+
+
+            }
+        }
+
         return view
     }
 
@@ -67,6 +96,7 @@ class View_Cart_Fragment : Fragment() {
         val totalPrice = view?.findViewById<TextView>(R.id.totalPrice)
         totalPrice!!.text = "$ ${"%.2f".format(price)}"
     }
+
 
     /*fun mainMenuTotalPrice() {
             // declare total price as a float
@@ -85,3 +115,5 @@ class View_Cart_Fragment : Fragment() {
         }*/
 
 }
+
+
