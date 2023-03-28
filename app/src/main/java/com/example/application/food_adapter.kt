@@ -1,5 +1,7 @@
 package com.example.application
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +11,17 @@ import android.widget.Filter
 import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.application.java.augmentedimage.AugmentedImageActivity
 import java.util.*
 import kotlin.collections.ArrayList
 
+
 class foodAdapter(private var foodList: ArrayList<FoodItemClass>,
-    private val listener: OnItemClickListener):
+    private val listener: OnItemClickListener, private val fragment: String, private val activity: AppCompatActivity, private val context: Context
+):
     RecyclerView.Adapter<foodAdapter.MyViewHolder>(){
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
@@ -24,8 +31,17 @@ class foodAdapter(private var foodList: ArrayList<FoodItemClass>,
         // cart button
         val foodCart = itemView.findViewById<Button>(R.id.cart_button)
 
+        val ARButton = itemView.findViewById<Button>(R.id.AR_button)
+
         init{
             foodCart.setOnClickListener(this)
+
+            ARButton.setOnClickListener {
+                val myIntent = Intent(context, AugmentedImageActivity::class.java)
+                myIntent.putExtra("foodname", foodList[absoluteAdapterPosition].name)
+                context.startActivity(myIntent)
+            }
+
 
         }
         override fun onClick(v: View?) {

@@ -16,6 +16,8 @@
 package com.example.application.java.augmentedimage.rendering;
 
 import android.content.Context;
+import android.util.Log;
+
 import com.google.ar.core.Anchor;
 import com.google.ar.core.AugmentedImage;
 import com.google.ar.core.Pose;
@@ -42,10 +44,33 @@ public class AugmentedImageRenderer {
 
   public AugmentedImageRenderer() {}
 
-  public void createOnGlThread(Context context) throws IOException {
+  public void createOnGlThread(Context context, String name) throws IOException {
 
+    String objAsset;
+    String diffuseTexture;
+    Log.d("test", name);
+
+    // Switch case to decide which model to render based on the ID from intent
+    switch (name) {
+      case "Soup":
+        objAsset = "foodmodels/chickenrice.obj";
+        diffuseTexture = "foodmodels/chickenrice.png";
+        break;
+      case "Chocolate Cake":
+        objAsset = "foodmodels/figdanish.obj";
+        diffuseTexture = "foodmodels/figdanish.png";
+        break;
+      case "Hamburger":
+        objAsset = "foodmodels/chickenrice.obj";
+        diffuseTexture = "foodmodels/chickenrice.png";
+        break;
+      default:
+        objAsset = "foodmodels/chickenrice.obj";
+        diffuseTexture = "foodmodels/chickenrice.png";
+        break;
+    }
     mazeRenderer.createOnGlThread(
-            context, "foodmodels/chickenrice.obj", "foodmodels/chickenrice.png");
+            context, objAsset, diffuseTexture);
     mazeRenderer.setMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
   }
 

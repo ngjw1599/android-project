@@ -16,6 +16,7 @@
 
 package com.example.application.java.augmentedimage;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -97,12 +98,18 @@ public class AugmentedImageActivity extends AppCompatActivity implements GLSurfa
   // database.
   private final Map<Integer, Pair<AugmentedImage, Anchor>> augmentedImageMap = new HashMap<>();
 
+  private String name;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.ar_screen);
     surfaceView = findViewById(R.id.surfaceview);
     displayRotationHelper = new DisplayRotationHelper(/*context=*/ this);
+
+    // Get info from intent
+    Intent intent = getIntent();
+    name = intent.getStringExtra("foodname");
 
     // Set up renderer.
     surfaceView.setPreserveEGLContextOnPause(true);
@@ -244,7 +251,9 @@ public class AugmentedImageActivity extends AppCompatActivity implements GLSurfa
     try {
       // Create the texture and pass it to ARCore session to be filled during update().
       backgroundRenderer.createOnGlThread(/*context=*/ this);
-      augmentedImageRenderer.createOnGlThread(/*context=*/ this);
+      //augmentedImageRenderer.createOnGlThread(/*context=*/ this);
+      Log.d("test", name);
+      augmentedImageRenderer.createOnGlThread(/*context=*/ this, name);
     } catch (IOException e) {
       Log.e(TAG, "Failed to read an asset file", e);
     }
