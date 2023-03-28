@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -64,8 +65,7 @@ class Promotion_Fragment : Fragment(), foodAdapter.OnItemClickListener {
         }
         Log.d("test", promoArrayList.size.toString())
         // attach adapter to recyclerview to populate data
-        promoRecyclerView.adapter = foodAdapter(promoArrayList, this)
-
+        promoRecyclerView.adapter = foodAdapter(promoArrayList, this, "Promotion_Fragment", activity as AppCompatActivity, requireContext())
     }
 
     // scanner

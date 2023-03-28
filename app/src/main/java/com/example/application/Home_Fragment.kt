@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -76,7 +77,7 @@ class Home_Fragment : Fragment(), foodAdapter.OnItemClickListener {
             newArrayList.add(fooditem)
         }
         // attach adapter to recyclerv  iew to populate data
-        adapter = foodAdapter(newArrayList, this)
+        adapter = foodAdapter(newArrayList, this, "Home_Fragment", activity as AppCompatActivity, requireContext())
         newRecyclerView.adapter = adapter
 
     }
