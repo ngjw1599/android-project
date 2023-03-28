@@ -64,10 +64,7 @@ class Home_Fragment : Fragment(), foodAdapter.OnItemClickListener {
                 return true
             }
         })
-
-
         return view
-
     }
 
 
