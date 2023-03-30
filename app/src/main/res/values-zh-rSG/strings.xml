@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ARtisanal</string>
+    <string name="add_to_cart">加入购物车</string>
+    <string name="main_menu">菜单</string>
+    <string name="order_summary">订单汇总</string>
+    <string name="order_submission_msg">您的订单已被提交.</string>
+    <string name="you_paid">您支付了：</string>
+    <string name="back_to_homepage">返回首页</string>
+    <string name="promotions">特价</string>
+    <string name="check_out">结账页面</string>
+    <string name="your_order">订单</string>
+    <string name="total">合计：</string>
+    <string name="confirm_order">确认订单</string>
+    <string name="cart">购买</string>
+    <string name="ar">增强现实</string>
+    <string name="home_nav">首页</string>
+    <string name="promotion_nav">特价</string>
+    <string name="cart_nav">购物车</string>
+    <string name="search_prompt">搜索食物。。。</string>
+    <string name="cart_toast_msg">加入购物车成功！</string>
+    <string name="price">价钱：</string>
+
+</resources>

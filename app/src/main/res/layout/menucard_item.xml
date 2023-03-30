@@ -57,7 +57,7 @@
         android:layout_marginBottom="10dp"
         android:minWidth="0dp"
         android:minHeight="0dp"
-        android:text="Cart"
+        android:text="@string/cart"
         android:textSize="10dp"
         app:icon="@drawable/baseline_shopping_cart_24"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,7 +71,7 @@
         android:layout_marginBottom="15dp"
         android:minWidth="0dp"
         android:minHeight="0dp"
-        android:text="AR"
+        android:text="@string/ar"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

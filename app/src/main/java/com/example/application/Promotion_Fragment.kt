@@ -34,8 +34,13 @@ class Promotion_Fragment : Fragment(), foodAdapter.OnItemClickListener {
         val view = inflater.inflate(R.layout.fragment_promotion, container, false)
 
         //set up file to scan
-        val scanner = Scanner(resources.openRawResource(R.raw.promo))
-        readFile(scanner)
+        if (Locale.getDefault().displayLanguage == "中文"){
+            val scanner = Scanner(resources.openRawResource(R.raw.promo_chinese))
+            readFile(scanner)
+        }else{
+            val scanner = Scanner(resources.openRawResource(R.raw.promo))
+            readFile(scanner)
+        }
 
         promoImageArray = arrayOf(
             R.drawable.sweet_tooth_special,

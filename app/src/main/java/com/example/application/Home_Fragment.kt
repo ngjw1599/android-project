@@ -1,6 +1,7 @@
 package com.example.application
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,8 +36,13 @@ class Home_Fragment : Fragment(), foodAdapter.OnItemClickListener {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         //set up file to scan
-        val scanner = Scanner(resources.openRawResource(R.raw.menu))
-        readFile(scanner)
+        if (Locale.getDefault().displayLanguage == "中文"){
+            val scanner = Scanner(resources.openRawResource(R.raw.menu_chinese))
+            readFile(scanner)
+        }else{
+            val scanner = Scanner(resources.openRawResource(R.raw.menu))
+            readFile(scanner)
+        }
 
         foodImageArray = arrayOf(
             R.drawable.chocolatecake,

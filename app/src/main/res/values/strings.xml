@@ -1,5 +1,25 @@
 <resources>
-    <string name="app_name">Application</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">ARtisanal</string>
+
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="cart_toast_msg">Item successfully added to cart!</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="order_submission_msg">Your order has been submitted.</string>
+    <string name="you_paid">You Paid:</string>
+    <string name="back_to_homepage">Back to Home Page</string>
+    <string name="promotions">Promotions</string>
+    <string name="check_out">Check Out</string>
+    <string name="your_order">Your Order</string>
+    <string name="total">Total:</string>
+    <string name="confirm_order">Confirm Order</string>
+    <string name="cart">Cart</string>
+    <string name="ar">AR</string>
+    <string name="search_prompt">Search Food...</string>
+
+    <string name="home_nav">Home</string>
+    <string name="promotion_nav">Promotion</string>
+    <string name="cart_nav">Cart</string>
+
+    <string name="price">Price:</string>
 </resources>

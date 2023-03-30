@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/alegreya_sc"
         android:padding="10dp"
-        android:text="Main Menu"
+        android:text="@string/main_menu"
         android:textColor="#EEE9F3"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainText"
-        app:queryHint="Search Food..."
+        app:queryHint="@string/search_prompt"
         app:iconifiedByDefault="false"/>
 
 

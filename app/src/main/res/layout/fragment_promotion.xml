@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/alegreya_sc"
         android:padding="10dp"
-        android:text="Promotions"
+        android:text="@string/promotions"
         android:textColor="#EEE9F3"
         android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@id/promoRecyclerView"

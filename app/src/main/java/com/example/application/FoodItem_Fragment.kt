@@ -50,7 +50,7 @@ class FoodItem_Fragment : Fragment() {
         foodDesc.text = input_desc
         val foodPrice = view.findViewById<TextView>(R.id.foodPrice)
         // add 2dp to price
-        foodPrice.text = "Price: $ ${"%.2f".format(input_price)}"
+        foodPrice.text = "${getString(R.string.price)} $ ${"%.2f".format(input_price)}"
         // declare cart in here
         cartListViewModel = (activity as MainActivity).getCartListViewModel() as CartViewModel
 
@@ -125,16 +125,16 @@ class FoodItem_Fragment : Fragment() {
         // use the view model to link to the cart list
         if (cartListViewModel.cartList.isEmpty()){
             cartListViewModel.cartList.add(newItemAdded)
-            Toast.makeText(activity, "Item successfully added to cart!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, getString(R.string.cart_toast_msg), Toast.LENGTH_SHORT).show()
         } else {
             for (item in cartListViewModel.cartList) {
                 if (item.name == item_name) {
                     item.itemAmount += item_amount
-                    Toast.makeText(activity, "Item successfully added to cart!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, getString(R.string.cart_toast_msg), Toast.LENGTH_SHORT).show()
                 }
             else{
                 cartListViewModel.cartList.add(newItemAdded)
-                Toast.makeText(activity, "Item successfully added to cart!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, getString(R.string.cart_toast_msg), Toast.LENGTH_SHORT).show()
                 }
             }
         }
