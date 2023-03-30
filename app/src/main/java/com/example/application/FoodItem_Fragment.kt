@@ -1,25 +1,18 @@
 package com.example.application
 
 import android.annotation.SuppressLint
-import android.content.ContentValues.TAG
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
-import androidx.core.widget.doOnTextChanged
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
-
 
 class FoodItem_Fragment : Fragment() {
 
@@ -58,7 +51,6 @@ class FoodItem_Fragment : Fragment() {
         val foodPrice = view.findViewById<TextView>(R.id.foodPrice)
         // add 2dp to price
         foodPrice.text = "Price: $ ${"%.2f".format(input_price)}"
-
         // declare cart in here
         cartListViewModel = (activity as MainActivity).getCartListViewModel() as CartViewModel
 
@@ -124,16 +116,28 @@ class FoodItem_Fragment : Fragment() {
                 addToCart(input_name, input_price, item_amount)
             }
         }
-
         return view
     }
 
     // functionality of passing data to the cart list
-    private fun addToCart(item_name: String, item_price: Float?, item_amount: Int ){
-        val newItemAdded = CartClass(item_name, item_price, item_amount)
+    private fun addToCart(item_name: String, item_price: Float?, item_amount: Int){
+        val newItemAdded = CartClass(name = item_name, price = item_price, itemAmount = item_amount)
         // use the view model to link to the cart list
-        cartListViewModel.cartList.add(newItemAdded)
-        Toast.makeText(activity, "Item successfully added to cart!", Toast.LENGTH_SHORT).show()
+        if (cartListViewModel.cartList.isEmpty()){
+            cartListViewModel.cartList.add(newItemAdded)
+            Toast.makeText(activity, "Item successfully added to cart!", Toast.LENGTH_SHORT).show()
+        } else {
+            for (item in cartListViewModel.cartList) {
+                if (item.name == item_name) {
+                    item.itemAmount += item_amount
+                    Toast.makeText(activity, "Item successfully added to cart!", Toast.LENGTH_SHORT).show()
+                }
+            else{
+                cartListViewModel.cartList.add(newItemAdded)
+                Toast.makeText(activity, "Item successfully added to cart!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
         val btmView = activity?.findViewById<BottomNavigationView>(R.id.bottomNav)
         btmView!!.visibility = View.VISIBLE
@@ -146,7 +150,5 @@ class FoodItem_Fragment : Fragment() {
         val amountShown = view.findViewById<TextView>(R.id.foodAmount)
         amountShown.text = "$item_amount"
     }
-
-
 
 }
