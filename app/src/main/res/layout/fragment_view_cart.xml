@@ -76,7 +76,7 @@
         android:fontFamily="sans-serif-black"
         android:text="@string/total"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/orderSummaryButton"
+        app:layout_constraintBottom_toTopOf="@+id/confirmOrderButton"
         app:layout_constraintEnd_toStartOf="@+id/totalPrice"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CartItems" />

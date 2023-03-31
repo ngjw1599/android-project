@@ -16,21 +16,29 @@
         app:srcCompat="@drawable/card_gradient"
         tools:layout_editor_absoluteX="0dp" />
 
+    <ImageView
+        android:id="@+id/logoBackground"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:paddingTop="10dp"
+        android:alpha="0.9"
+        app:layout_constraintBottom_toTopOf="@+id/mainText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/artisanal_logo" />
 
     <TextView
         android:id="@+id/mainText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/alegreya_sc"
-        android:padding="10dp"
+        android:paddingBottom="10dp"
         android:text="@string/main_menu"
         android:textColor="#EEE9F3"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/searchBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="20dp"
@@ -58,6 +66,8 @@
         app:layout_constraintTop_toBottomOf="@+id/mainText"
         app:queryHint="@string/search_prompt"
         app:iconifiedByDefault="false"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
