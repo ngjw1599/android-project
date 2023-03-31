@@ -52,7 +52,7 @@ public class AugmentedImageRenderer {
 
     // Switch case to decide which model to render based on the ID from intent
     switch (name) {
-      case "Soup":
+      case "chickenrice":
         objAsset = "foodmodels/chickenrice.obj";
         diffuseTexture = "foodmodels/chickenrice.png";
         break;
@@ -61,8 +61,12 @@ public class AugmentedImageRenderer {
         diffuseTexture = "foodmodels/figdanish.png";
         break;
       case "Hamburger":
-        objAsset = "foodmodels/chickenrice.obj";
-        diffuseTexture = "foodmodels/chickenrice.png";
+        objAsset = "foodmodels/beefbowl.obj";
+        diffuseTexture = "foodmodels/beefbowl.png";
+        break;
+      case "Muffin":
+        objAsset = "foodmodels/salad.obj";
+        diffuseTexture = "foodmodels/salad.png";
         break;
       default:
         objAsset = "foodmodels/chickenrice.obj";
@@ -85,7 +89,7 @@ public class AugmentedImageRenderer {
     float[] tintColor =
             convertHexToColor(TINT_COLORS_HEX[augmentedImage.getIndex() % TINT_COLORS_HEX.length]);
 
-    final float mazeEdgeSize = 492.65f /200; // Magic number of maze size
+    final float mazeEdgeSize = 492.65f /2000; // Magic number of maze size
     final float maxImageEdgeSize = Math.max(augmentedImage.getExtentX(), augmentedImage.getExtentZ()); // Get largest detected image edge size
 
     Pose anchorPose = centerAnchor.getPose();
