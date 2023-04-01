@@ -92,7 +92,7 @@ public class AugmentedImageActivity extends AppCompatActivity implements GLSurfa
 
   // Augmented image configuration and rendering.
   // Load a single image (true) or a pre-generated image database (false).
-  private final boolean useSingleImage = false;
+  private final boolean useSingleImage = true;
   // Augmented image and its associated center pose anchor, keyed by index of the augmented image in
   // the
   // database.
@@ -415,7 +415,7 @@ public class AugmentedImageActivity extends AppCompatActivity implements GLSurfa
   }
 
   private Bitmap loadAugmentedImageBitmap() {
-    try (InputStream is = getAssets().open("default.jpg")) {
+    try (InputStream is = getAssets().open("img.png")) {
       return BitmapFactory.decodeStream(is);
     } catch (IOException e) {
       Log.e(TAG, "IO exception loading augmented image bitmap.", e);
