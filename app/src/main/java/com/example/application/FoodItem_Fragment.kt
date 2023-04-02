@@ -127,16 +127,30 @@ class FoodItem_Fragment : Fragment() {
             cartListViewModel.cartList.add(newItemAdded)
             Toast.makeText(activity, getString(R.string.cart_toast_msg), Toast.LENGTH_SHORT).show()
         } else {
+            var item_exist = false
             for (item in cartListViewModel.cartList) {
                 if (item.name == item_name) {
-                    item.itemAmount += item_amount
-                    Toast.makeText(activity, getString(R.string.cart_toast_msg), Toast.LENGTH_SHORT).show()
-                }
-            else{
-                cartListViewModel.cartList.add(newItemAdded)
-                Toast.makeText(activity, getString(R.string.cart_toast_msg), Toast.LENGTH_SHORT).show()
+                    item_exist = true
                 }
             }
+            if (item_exist) {
+                for (item in cartListViewModel.cartList) {
+                    if (item.name == item_name) {
+                        item.itemAmount += item_amount
+                        Toast.makeText(
+                            activity,
+                            getString(R.string.cart_toast_msg),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        break
+                    }
+                }
+            } else {
+                cartListViewModel.cartList.add(newItemAdded)
+                Toast.makeText(activity, getString(R.string.cart_toast_msg), Toast.LENGTH_SHORT)
+                    .show()
+            }
+
         }
 
         val btmView = activity?.findViewById<BottomNavigationView>(R.id.bottomNav)
@@ -146,7 +160,7 @@ class FoodItem_Fragment : Fragment() {
     }
 
     // set value on app
-    private fun showAmount(view: View){
+    fun showAmount(view: View){
         val amountShown = view.findViewById<TextView>(R.id.foodAmount)
         amountShown.text = "$item_amount"
     }
