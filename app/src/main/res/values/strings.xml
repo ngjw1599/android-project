@@ -5,7 +5,7 @@
     <string name="cart_toast_msg">Item successfully added to cart!</string>
     <string name="main_menu">Main Menu</string>
     <string name="order_summary">Order Summary</string>
-    <string name="order_submission_msg">Your order has been submitted.</string>
+    <string name="order_submission_msg">Your order has been sent to the kitchen!</string>
     <string name="you_paid">You Paid:</string>
     <string name="back_to_homepage">Back to Home Page</string>
     <string name="promotions">Promotions</string>
@@ -20,6 +20,8 @@
     <string name="home_nav">Home</string>
     <string name="promotion_nav">Promotion</string>
     <string name="cart_nav">Cart</string>
+    <string name="clear_cart">Clear Cart</string>
+    <string name="clear_cart_msg">Cart has been cleared</string>
 
     <string name="price">Price:</string>
 </resources>

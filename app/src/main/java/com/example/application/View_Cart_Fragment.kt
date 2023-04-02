@@ -86,11 +86,6 @@ class View_Cart_Fragment : Fragment() {
         return view
     }
 
-//    private fun getItemData(cartListViewModel: CartViewModel ) {
-//        var totalPrice = cartListViewModel.getTotalPrice()
-//     Log.d("getItemData", ""+totalPrice)
-//
-//    }
 
     fun setTotalPrice(price: Float) {
         val totalPrice = view?.findViewById<TextView>(R.id.totalPrice)
@@ -98,21 +93,6 @@ class View_Cart_Fragment : Fragment() {
     }
 
 
-    /*fun mainMenuTotalPrice() {
-            // declare total price as a float
-            var totalPrice = 0.0f
-            if (cartListViewModel.cartList.size == 0){
-                totalPrice = 0.0F
-            }
-            else{
-                for (itemDetail in cartListViewModel.cartList){
-                    totalPrice += (itemDetail.price!! * itemDetail.itemAmount)
-                }
-            }
-
-            val totalPriceView = view?.findViewById<TextView>(R.id.totalPrice)
-            totalPriceView!!.text = "$ ${"%.2f".format(totalPrice)}"
-        }*/
 
 }
 

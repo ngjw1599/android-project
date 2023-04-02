@@ -20,5 +20,7 @@
     <string name="search_prompt">搜索食物。。。</string>
     <string name="cart_toast_msg">加入购物车成功！</string>
     <string name="price">价钱：</string>
+    <string name="clear_cart">清购物车</string>
+    <string name="clear_cart_msg">购物车已清空</string>
 
 </resources>
