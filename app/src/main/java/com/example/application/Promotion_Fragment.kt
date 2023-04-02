@@ -15,16 +15,19 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class Promotion_Fragment : Fragment(), foodAdapter.OnItemClickListener {
+    // declare list array
+    private lateinit var promoArrayList: ArrayList<FoodItemClass>
 
     // declare recyclerview
     lateinit var promoRecyclerView: RecyclerView
-    // declare list array
-    lateinit var promoArrayList: ArrayList<FoodItemClass>
 
     lateinit var promoImageArray : Array<Int>
+    var promoIDArray = ArrayList<String>()
     var promoNameArray = ArrayList<String>()
     var promoDescArray = ArrayList<String>()
     var promoPriceArray = ArrayList<Float>()
+
+    private lateinit var adapter: foodAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +46,8 @@ class Promotion_Fragment : Fragment(), foodAdapter.OnItemClickListener {
         }
 
         promoImageArray = arrayOf(
+            R.drawable.promobeef,
+            R.drawable.promopastry,
             R.drawable.sweet_tooth_special,
             R.drawable.soup_sandwich,
             R.drawable.croissant_breakfast,
@@ -54,7 +59,7 @@ class Promotion_Fragment : Fragment(), foodAdapter.OnItemClickListener {
         promoRecyclerView = view.findViewById(R.id.promoRecyclerView)
         promoRecyclerView.layoutManager = LinearLayoutManager(context)
         promoRecyclerView.setHasFixedSize(true)
-        promoArrayList = arrayListOf<FoodItemClass>()
+        promoArrayList = arrayListOf()
         getItemData()
 
 
@@ -63,14 +68,15 @@ class Promotion_Fragment : Fragment(), foodAdapter.OnItemClickListener {
 
 
     private fun getItemData(){
-        Log.d("test", promoImageArray.indices.toString())
+
         for (i in promoImageArray.indices){
-            val fooditem = FoodItemClass(promoNameArray[i], promoImageArray[i], promoDescArray[i], promoPriceArray[i])
+            val fooditem = FoodItemClass(foodID = promoIDArray[i], name = promoNameArray[i], photo = promoImageArray[i], desc = promoDescArray[i], price = promoPriceArray[i])
             promoArrayList.add(fooditem)
         }
-        Log.d("test", promoArrayList.size.toString())
+
         // attach adapter to recyclerview to populate data
-        promoRecyclerView.adapter = foodAdapter(promoArrayList, this, "Promotion_Fragment", activity as AppCompatActivity, requireContext())
+        adapter = foodAdapter(promoArrayList, this, "Promotion_Fragment", activity as AppCompatActivity, requireContext())
+        promoRecyclerView.adapter = adapter
     }
 
     // scanner
@@ -79,10 +85,11 @@ class Promotion_Fragment : Fragment(), foodAdapter.OnItemClickListener {
         while (scanner.hasNextLine()){
             val line= scanner.nextLine()
             val pieces = line.split("\t")
-            // add food name and description accordingly
-            promoNameArray.add(pieces[0])
-            promoDescArray.add(pieces[1])
-            promoPriceArray.add((pieces[2]).toFloat())
+            // add food information accordingly
+            promoIDArray.add(pieces[0])
+            promoNameArray.add(pieces[1])
+            promoDescArray.add(pieces[2])
+            promoPriceArray.add((pieces[3]).toFloat())
         }
     }
 

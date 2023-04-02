@@ -36,11 +36,18 @@ class foodAdapter(private var foodList: ArrayList<FoodItemClass>,
         init{
             foodCart.setOnClickListener(this)
 
-            ARButton.setOnClickListener {
-                val myIntent = Intent(context, AugmentedImageActivity::class.java)
-                myIntent.putExtra("foodname", foodList[absoluteAdapterPosition].name)
-                context.startActivity(myIntent)
+         if (fragment == "Promotion_Fragment"){
+                ARButton!!.visibility = View.INVISIBLE
             }
+            else{
+                ARButton.visibility = View.VISIBLE
+                ARButton.setOnClickListener {
+                    val myIntent = Intent(context, AugmentedImageActivity::class.java)
+                    myIntent.putExtra("foodID", foodList[absoluteAdapterPosition].foodID)
+                    context.startActivity(myIntent)
+                }
+            }
+
 
 
         }

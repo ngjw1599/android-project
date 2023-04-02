@@ -21,9 +21,6 @@
             android:name=".Promotion_Fragment"
             android:exported="false" />
         <activity
-            android:name=".Checkout_Activity"
-            android:exported="false" />
-        <activity
             android:name=".View_Cart_Fragment"
             android:exported="false" />
         <activity

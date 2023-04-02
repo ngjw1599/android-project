@@ -1,6 +1,8 @@
-Sweet Tooth Special	Indulge in our decadent chocolate cake and buttery croissant combo for the perfect afternoon treat.	15.60
-Soup & Sandwich	Warm up with our delicious soup of the day paired with a juicy hamburger. Served with a freshly baked muffin on the side.	11.40
-Croissant Breakfast	Start your day off right with a flaky croissant sandwich filled with scrambled eggs, crispy bacon, and melted cheese. Served with a side of soup or salad.	13.50
-Muffin Madness	Mix and match any two of our freshly baked muffins and a piping hot cup of coffee for the perfect breakfast or midday snack.	9.50
-Hamburger Happy Hour	Join us for happy hour and enjoy our juicy hamburger and a slice of rich chocolate cake for a discounted price.	17.60
-Soup & Salad Lunch	Take a break from the usual sandwich routine and try our daily soup and salad special, served with a warm croissant on the side.	10.50
+p1	Beef Bowl Meal Combo	Satisfy your hunger and treat your taste buds with our Meal Combo, featuring a delicious Beef Bowl Rice, a refreshing Salad Bowl, and a hearty and delicious Soup. Our Beef Bowl Rice is made with premium beef slices, vegetables, and fluffy steamed rice, while our Salad Bowl is filled with an array of crisp and colorful vegetables, tossed with a tangy dressing and topped with your choice of protein. Our soup is made with the freshest ingredients and bursting with flavor. This combo is perfect for a satisfying and nutritious meal that's also great value for money.	21.00
+p2	Pastry Combo	Indulge in our Pastry Combo, featuring three of our freshly baked pastries: a buttery and flaky Fig Danish with a sweet, fruity filling of figs, a delicate and crispy Croissant filled with your choice of sweet or savory fillings, and a soft and fluffy Muffin bursting with flavor in every bite. This combo is perfect for a delicious breakfast or a midday snack, and at such a great value, you can treat yourself without breaking the bank.	10.00
+p3	Sweet Tooth Special	Indulge in our decadent chocolate cake and buttery croissant combo for the perfect afternoon treat.	15.60
+p4	Soup & Sandwich	Warm up with our delicious soup of the day paired with a juicy hamburger. Served with a freshly baked muffin on the side.	11.40
+p5	Croissant Breakfast	Start your day off right with a flaky croissant sandwich filled with scrambled eggs, crispy bacon, and melted cheese. Served with a side of soup or salad.	13.50
+p6	Muffin Madness	Mix and match any two of our freshly baked muffins and a piping hot cup of coffee for the perfect breakfast or midday snack.	9.50
+p7	Hamburger Happy Hour	Join us for happy hour and enjoy our juicy hamburger and a slice of rich chocolate cake for a discounted price.	17.60
+p8	Soup & Salad Lunch	Take a break from the usual sandwich routine and try our daily soup and salad special, served with a warm croissant on the side.	10.50

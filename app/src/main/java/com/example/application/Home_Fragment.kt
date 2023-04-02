@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 import kotlin.collections.ArrayList
 import androidx.appcompat.widget.SearchView
@@ -22,6 +21,7 @@ class Home_Fragment : Fragment(), foodAdapter.OnItemClickListener {
     private lateinit var newArrayList: ArrayList<FoodItemClass>
 
     lateinit var foodImageArray : Array<Int>
+    private var foodIDArray = ArrayList<String>()
     private var foodNameArray = ArrayList<String>()
     private var foodDescArray = ArrayList<String>()
     private var foodPriceArray = ArrayList<Float>()
@@ -45,6 +45,10 @@ class Home_Fragment : Fragment(), foodAdapter.OnItemClickListener {
         }
 
         foodImageArray = arrayOf(
+            R.drawable.beefbowl,
+            R.drawable.chickenrice,
+            R.drawable.figdanish,
+            R.drawable.saladbowl,
             R.drawable.chocolatecake,
             R.drawable.croissant,
             R.drawable.hamburger,
@@ -56,7 +60,7 @@ class Home_Fragment : Fragment(), foodAdapter.OnItemClickListener {
         newRecyclerView = view.findViewById(R.id.homeRecyclerView)
         newRecyclerView.layoutManager = LinearLayoutManager(context)
         newRecyclerView.setHasFixedSize(true)
-        newArrayList = arrayListOf<FoodItemClass>()
+        newArrayList = arrayListOf()
         getItemData()
 
         val searchView = view.findViewById<SearchView>(R.id.searchBar)
@@ -76,7 +80,7 @@ class Home_Fragment : Fragment(), foodAdapter.OnItemClickListener {
 
     private fun getItemData(){
         for (i in foodImageArray.indices){
-            val fooditem = FoodItemClass(foodNameArray[i], foodImageArray[i], foodDescArray[i], foodPriceArray[i])
+            val fooditem = FoodItemClass(foodIDArray[i], foodNameArray[i], foodImageArray[i], foodDescArray[i], foodPriceArray[i])
             newArrayList.add(fooditem)
         }
         // attach adapter to recyclerv  iew to populate data
@@ -92,9 +96,10 @@ class Home_Fragment : Fragment(), foodAdapter.OnItemClickListener {
             val line= scanner.nextLine()
             val pieces = line.split("\t")
             // add food name and description accordingly
-            foodNameArray.add(pieces[0])
-            foodDescArray.add(pieces[1])
-            foodPriceArray.add((pieces[2]).toFloat())
+            foodIDArray.add(pieces[0])
+            foodNameArray.add(pieces[1])
+            foodDescArray.add(pieces[2])
+            foodPriceArray.add((pieces[3]).toFloat())
 
         }
     }
