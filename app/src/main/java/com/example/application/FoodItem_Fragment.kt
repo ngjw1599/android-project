@@ -1,6 +1,7 @@
 package com.example.application
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,7 +40,7 @@ class FoodItem_Fragment : Fragment() {
         input_image = arguments?.getInt("input_image")
         input_name = arguments?.getString("input_name").toString()
         input_desc = arguments?.getString("input_desc").toString()
-        input_price = arguments?.getFloat("input_price")
+        input_price = arguments?.getFloat("input_price")!!
 
         // bind to the required components
         val foodName = view.findViewById<TextView>(R.id.foodName)
@@ -125,15 +126,28 @@ class FoodItem_Fragment : Fragment() {
         // use the view model to link to the cart list
         if (cartListViewModel.cartList.isEmpty()){
             cartListViewModel.cartList.add(newItemAdded)
+
+
+            requireActivity().getSharedPreferences("cart", Context.MODE_PRIVATE).edit().apply{
+                putString(item_name, item_price.toString() + "_" + item_amount.toString())
+            }.apply()
+
             Toast.makeText(activity, getString(R.string.cart_toast_msg), Toast.LENGTH_SHORT).show()
         } else {
             for (item in cartListViewModel.cartList) {
                 if (item.name == item_name) {
                     item.itemAmount += item_amount
                     Toast.makeText(activity, getString(R.string.cart_toast_msg), Toast.LENGTH_SHORT).show()
+
+                    requireActivity().getSharedPreferences("cart", Context.MODE_PRIVATE).edit().apply{
+                        putString(item_name, item_price.toString() + "_" + item_amount.toString())
+                    }.apply()
                 }
             else{
                 cartListViewModel.cartList.add(newItemAdded)
+                requireActivity().getSharedPreferences("cart", Context.MODE_PRIVATE).edit().apply{
+                    putString(item_name, item_price.toString() + "_" + item_amount.toString())
+                }.apply()
                 Toast.makeText(activity, getString(R.string.cart_toast_msg), Toast.LENGTH_SHORT).show()
                 }
             }
