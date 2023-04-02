@@ -1,7 +1,10 @@
 package com.example.application
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.method.TextKeyListener.clear
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -62,6 +65,7 @@ class OrderSummaryFragment : Fragment() {
             fmTransact.replace(R.id.orderSummaryFragment, frag)
             fmTransact.commit()
             orderListViewModel.cartList.clear()
+            requireActivity().getSharedPreferences("cart", Context.MODE_PRIVATE).edit().clear().commit()
             // hide confirm order button
             goHomeBtn.visibility = View.GONE
 

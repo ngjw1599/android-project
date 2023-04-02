@@ -1,8 +1,11 @@
 package com.example.application
 
 import android.app.assist.AssistStructure.ViewNode
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
@@ -30,6 +33,13 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val items = getSharedPreferences("cart", Context.MODE_PRIVATE).all
+        for (each in items){
+            val price = each.value.toString().split("_")[0]
+            val amount = each.value.toString().split("_")[1]
+            cartListViewModel.cartList.add(CartClass(name = each.key, price = price.toFloat(), itemAmount = amount.toInt()))
+        }
 
         val home = Home_Fragment()
         val promotion = Promotion_Fragment()
@@ -66,6 +76,10 @@ class MainActivity : AppCompatActivity(){
         return cartListViewModel
     }
 
+    override fun onDestroy() {
+        cartListViewModel.cartList.clear()
+        super.onDestroy()
+    }
 
 
 }

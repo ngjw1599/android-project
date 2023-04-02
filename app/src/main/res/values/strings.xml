@@ -15,6 +15,7 @@
     <string name="confirm_order">Confirm Order</string>
     <string name="cart">Cart</string>
     <string name="ar">AR</string>
+    <string name="clear">Your cart has been successfully cleared!</string>
     <string name="search_prompt">Search Food...</string>
 
     <string name="home_nav">Home</string>

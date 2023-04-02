@@ -1,12 +1,14 @@
 package com.example.application
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -47,12 +49,13 @@ class View_Cart_Fragment : Fragment() {
         if (cartListViewModel.cartList.size == 0){
             totalPriceView.text = "$0.00"
         }
-        else{
-            for (itemDetail in cartListViewModel.cartList){
+        else {
+            for (itemDetail in cartListViewModel.cartList) {
                 totalPrice = totalPrice?.plus((itemDetail.price!! * itemDetail.itemAmount))
             }
             totalPriceView!!.text = "$ ${"%.2f".format(totalPrice)}"
         }
+
 
         // submit order on click and show order summary
         var submitOrderBtn = view.findViewById<Button>(R.id.confirmOrderButton)
@@ -91,7 +94,6 @@ class View_Cart_Fragment : Fragment() {
         val totalPrice = view?.findViewById<TextView>(R.id.totalPrice)
         totalPrice!!.text = "$ ${"%.2f".format(price)}"
     }
-
 
 
 }
