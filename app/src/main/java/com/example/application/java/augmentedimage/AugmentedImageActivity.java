@@ -109,7 +109,7 @@ public class AugmentedImageActivity extends AppCompatActivity implements GLSurfa
 
     // Get info from intent
     Intent intent = getIntent();
-    name = intent.getStringExtra("foodname");
+    name = intent.getStringExtra("foodID");
 
     // Set up renderer.
     surfaceView.setPreserveEGLContextOnPause(true);
@@ -332,8 +332,8 @@ public class AugmentedImageActivity extends AppCompatActivity implements GLSurfa
         case PAUSED:
           // When an image is in PAUSED state, but the camera is not PAUSED, it has been detected,
           // but not yet tracked.
-          String text = String.format("Detected Image %d", augmentedImage.getIndex());
-          messageSnackbarHelper.showMessage(this, text);
+//          String text = String.format("Detected Image %d", augmentedImage.getIndex());
+//          messageSnackbarHelper.showMessage(this, text);
           break;
 
         case TRACKING:

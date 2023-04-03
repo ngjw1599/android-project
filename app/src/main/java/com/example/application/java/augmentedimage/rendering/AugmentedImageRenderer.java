@@ -52,19 +52,19 @@ public class AugmentedImageRenderer {
 
     // Switch case to decide which model to render based on the ID from intent
     switch (name) {
-      case "chickenrice":
+      case "02":
         objAsset = "foodmodels/chickenrice.obj";
         diffuseTexture = "foodmodels/chickenrice.png";
         break;
-      case "Chocolate Cake":
+      case "03":
         objAsset = "foodmodels/figdanish.obj";
         diffuseTexture = "foodmodels/figdanish.png";
         break;
-      case "Hamburger":
+      case "01":
         objAsset = "foodmodels/beefbowl.obj";
         diffuseTexture = "foodmodels/beefbowl.png";
         break;
-      case "Muffin":
+      case "04":
         objAsset = "foodmodels/salad.obj";
         diffuseTexture = "foodmodels/salad.png";
         break;
