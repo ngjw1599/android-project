@@ -16,6 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class FoodItem_Fragment : Fragment() {
 
+    //declare variables
     var input_position: Int? = null
     var input_image: Int? = null
     var input_name : String = ""

@@ -21,12 +21,14 @@ class Promotion_Fragment : Fragment(), foodAdapter.OnItemClickListener {
     // declare recyclerview
     lateinit var promoRecyclerView: RecyclerView
 
+    //declare the required arrays to show through the adapter
     lateinit var promoImageArray : Array<Int>
     var promoIDArray = ArrayList<String>()
     var promoNameArray = ArrayList<String>()
     var promoDescArray = ArrayList<String>()
     var promoPriceArray = ArrayList<Float>()
 
+    // declare adapter type
     private lateinit var adapter: foodAdapter
 
     override fun onCreateView(
@@ -93,7 +95,6 @@ class Promotion_Fragment : Fragment(), foodAdapter.OnItemClickListener {
         }
     }
 
-    // pass data to cart?
     override fun passData(position: Int, image: Int, name: String, desc: String, price: Float) {
         // declaring fragment manager
         val fm = childFragmentManager

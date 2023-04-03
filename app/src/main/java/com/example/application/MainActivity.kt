@@ -17,16 +17,7 @@ import kotlin.collections.ArrayList
 import androidx.fragment.app.viewModels
 
 class MainActivity : AppCompatActivity(){
-    /*// declare recyclerview
-    private lateinit var newRecyclerView: RecyclerView
-    // declare list array
-    private lateinit var newArrayList: ArrayList<FoodItemClass>
 
-    lateinit var foodImageArray : Array<Int>
-    private var foodNameArray = ArrayList<String>()
-    private var foodDescArray = ArrayList<String>()
-
-*/
     // view model declaration in main activity as a form of global variable
     private val cartListViewModel : CartViewModel by viewModels()
 

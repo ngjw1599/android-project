@@ -33,6 +33,7 @@ class cartAdapter(private val cartList: MutableList<CartClass>, private val frag
                 }
 
             }
+            // on click to remove
             removeButton.setOnClickListener {
                 val position = absoluteAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
@@ -80,6 +81,7 @@ class cartAdapter(private val cartList: MutableList<CartClass>, private val frag
         }
     }
 
+    //calculate total price of all items in cart
     private fun totalPriceCalculate(): Float {
         // declare total price as a float
         var totalPrice = 0.0f

@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class OrderSummaryFragment : Fragment() {
-
+    // declare cart
     private lateinit var orderListViewModel: CartViewModel
     // declare recyclerview
     private lateinit var newRecyclerView: RecyclerView

@@ -40,8 +40,8 @@ class View_Cart_Fragment : Fragment() {
         cartListViewModel = (activity as MainActivity).getCartListViewModel() as CartViewModel
         // if cart is empty, show message
         if (cartListViewModel.cartList.size == 0) {
-
-        }
+            Toast.makeText(context, "Your cart is empty", Toast.LENGTH_SHORT).show()
+            }
         // attach adapter to recyclerview to populate data
         newRecyclerView.adapter = cartAdapter(cartListViewModel.cartList, this)
 
@@ -81,8 +81,6 @@ class View_Cart_Fragment : Fragment() {
 
                 // hide confirm order button
                 submitOrderBtn.visibility = View.GONE
-
-
             }
         }
 

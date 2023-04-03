@@ -52,11 +52,14 @@ class foodAdapter(private var foodList: ArrayList<FoodItemClass>,
 
         }
         override fun onClick(v: View?) {
+            // gets the current position of item we want to see
             val position = absoluteAdapterPosition
             val image = foodList[position].photo
             val name = foodList[position].name
             val desc = foodList[position].desc
             val price = foodList[position].price
+
+            // uses the current position details to pass data into the item detail page
             if (position != RecyclerView.NO_POSITION){
                 listener.passData(position,image,name,desc,price)
             }
@@ -64,11 +67,11 @@ class foodAdapter(private var foodList: ArrayList<FoodItemClass>,
         }
 
     }
+    // on button click it will go to each item detail page
     interface OnItemClickListener{
         fun passData(position: Int, image: Int, name: String, desc: String, price: Float)
     }
 
-    //https://guides.codepath.com/android/using-the-recyclerview
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): foodAdapter.MyViewHolder {
         val context = parent.context
@@ -88,6 +91,8 @@ class foodAdapter(private var foodList: ArrayList<FoodItemClass>,
         holder.foodPhoto.setImageResource(currentItem.photo)
         holder.foodtextView.text = currentItem.name
     }
+
+    // searchbar for filtering
     fun setFilterText(filteredfoodList: ArrayList<FoodItemClass>){
         this.foodList = filteredfoodList
         notifyDataSetChanged()

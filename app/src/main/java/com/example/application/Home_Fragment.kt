@@ -44,6 +44,7 @@ class Home_Fragment : Fragment(), foodAdapter.OnItemClickListener {
             readFile(scanner)
         }
 
+        // insert photos into array
         foodImageArray = arrayOf(
             R.drawable.beefbowl,
             R.drawable.chickenrice,
@@ -104,18 +105,21 @@ class Home_Fragment : Fragment(), foodAdapter.OnItemClickListener {
         }
     }
 
-    private fun filterList(query: String){
 
+    private fun filterList(query: String){
         if (query!= null){
             var filterArrayList = ArrayList<FoodItemClass>()
             for (item in newArrayList){
+
+                // items with matching searches will appear
                 if (item.name.toLowerCase(Locale.ROOT).contains(query)){
                     filterArrayList.add(item)
                 }
 
             }
+            // if user search does not return a result
             if (filterArrayList.isEmpty()){
-                Toast.makeText(context, "there is nothing", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "There is nothing", Toast.LENGTH_SHORT).show()
             }
             else{
                 adapter.setFilterText(filterArrayList)
@@ -123,6 +127,7 @@ class Home_Fragment : Fragment(), foodAdapter.OnItemClickListener {
         }
     }
 
+    // passing of data using bundles into the fragment
     override fun passData(position: Int, image: Int, name: String, desc: String, price: Float) {
         // declaring fragment manager
         val fm = childFragmentManager
