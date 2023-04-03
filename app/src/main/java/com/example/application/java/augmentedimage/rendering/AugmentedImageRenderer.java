@@ -75,7 +75,7 @@ public class AugmentedImageRenderer {
     }
     mazeRenderer.createOnGlThread(
             context, objAsset, diffuseTexture);
-    mazeRenderer.setMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
+    mazeRenderer.setMaterialProperties(0.0f, 3.5f/2, 1.0f/2, 6.0f/2);
   }
 
 

@@ -114,10 +114,10 @@ public class ObjectRenderer {
   private final float[] modelViewProjectionMatrix = new float[16];
 
   // Set some default material properties to use for lighting.
-  private float ambient = 0.3f;
-  private float diffuse = 1.0f;
-  private float specular = 1.0f;
-  private float specularPower = 6.0f;
+  private float ambient = 0.3f/2;
+  private float diffuse = 1.0f/2;
+  private float specular = 1.0f/2;
+  private float specularPower = 6.0f/2;
 
   // Depth-for-Occlusion parameters.
   private static final String USE_DEPTH_FOR_OCCLUSION_SHADER_FLAG = "USE_DEPTH_FOR_OCCLUSION";
